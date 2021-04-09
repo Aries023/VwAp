@@ -16,6 +16,7 @@ public class Jobs {
             pozicie.put(++IDPozicie, sc.getSlovo());
             System.out.println("ak su zadane vsetky pozicie, napis koniec. inak zadaj lubovolny text (pocet pozicii "+IDPozicie+")");
             if (sc.getSlovo().equalsIgnoreCase("koniec")){
+                System.out.println("toto su vytvorene pozicie : "+ pozicie.values());
                 return pozicie;
             }
         }
