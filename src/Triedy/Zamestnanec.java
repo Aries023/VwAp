@@ -4,7 +4,7 @@ public class Zamestnanec {
     String meno = "este nema meno";
     String telCislo = "zatial nieje ziadne";
     String osobneCislo = "zatial nema";
-    int cisloVyrobenychZamestnancov = 0;
+    int cisloVyrobenychZamestnancov = 0; // poradie zamestnancov
 
     public Zamestnanec(String meno, String telCislo, String osobneCislo) {
         cisloVyrobenychZamestnancov++;
