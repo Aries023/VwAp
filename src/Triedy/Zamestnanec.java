@@ -1,4 +1,4 @@
-package untils;
+package Triedy;
 
 public class Zamestnanec {
     String meno = "este nema meno";
