@@ -14,6 +14,7 @@ public class ScanDavac {
                 System.out.println("musis zadat cislo");
             }
         }}
+
         public void scannerEnd (){
         sc.close();
         }
