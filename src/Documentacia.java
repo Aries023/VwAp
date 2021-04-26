@@ -10,5 +10,8 @@ public class Documentacia {
     *** 1. najprv pomocov triedy Jobs zistim ake mame pozicie ***
     *
     *
+    *
+    * dokoncit!
+    * workers - list pozicii
      */
 }

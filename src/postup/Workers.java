@@ -45,9 +45,9 @@ public class Workers {
 
 
             // ucelenie zamestnanca a samotna tvorba (instancia Zaestnanca)
-            Zamestnanec z = new Zamestnanec(name, telCislo, osobneCislo);
-            arg.put(++IDZamestnanca, z);
-            System.out.println("ak mame vsetkych zamestnancov napis koniec inak pokracujeme dalej");
+//            Zamestnanec z = new Zamestnanec(name, telCislo, osobneCislo);
+//            arg.put(++IDZamestnanca, z);
+//            System.out.println("ak mame vsetkych zamestnancov napis koniec inak pokracujeme dalej");
 
         } while (!sc.getSlovo().equalsIgnoreCase("koniec"));
     }
