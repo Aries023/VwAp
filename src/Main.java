@@ -1,5 +1,13 @@
+import doplnky.TraySysMenu;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowStateListener;
+import java.io.IOException;
 
 public class Main {
 
@@ -68,5 +76,21 @@ public class Main {
 
         con.add(titleNamePanel);
         con.add(startButtomPanel);
+
+        // Tray Menu = ikonka v rohu s moznostami..
+        TraySysMenu traySysMenu = new TraySysMenu();
+        traySysMenu.systemTray(window);
+        window.addWindowStateListener(new WindowStateListener() {
+            @Override
+            public void windowStateChanged(WindowEvent e) {
+             traySysMenu.eventTray(window);
+            }
+        });
+
+
+
     }
-}
+
+
+    }
+
