@@ -1,13 +1,9 @@
 import doplnky.TraySysMenu;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowStateListener;
-import java.io.IOException;
 
 public class Main {
 
@@ -16,6 +12,7 @@ public class Main {
     JPanel titleNamePanel, startButtomPanel;
     JLabel titleNameLabel;
     JButton create, change, split;
+    TraySysMenu traySysMenu;
     Font titleFont = new Font("Times New Roman",Font.PLAIN,85);
     Font normalFont = new Font("Times New Roman",Font.PLAIN,28);
 
@@ -78,7 +75,7 @@ public class Main {
         con.add(startButtomPanel);
 
         // Tray Menu = ikonka v rohu s moznostami..
-        TraySysMenu traySysMenu = new TraySysMenu();
+        traySysMenu = new TraySysMenu();
         traySysMenu.systemTray(window);
         window.addWindowStateListener(new WindowStateListener() {
             @Override
