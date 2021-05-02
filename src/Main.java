@@ -1,7 +1,10 @@
+import Rozcestie.Create.CreateV;
 import doplnky.TraySysMenu;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowStateListener;
 
@@ -11,10 +14,11 @@ public class Main {
     Container con;
     JPanel titleNamePanel, startButtomPanel;
     JLabel titleNameLabel;
-    JButton create, change, split;
+    JButton create, modify, split;
     TraySysMenu traySysMenu;
     Font titleFont = new Font("Times New Roman",Font.PLAIN,85);
     Font normalFont = new Font("Times New Roman",Font.PLAIN,28);
+    StartMenuHandler startMenuHandler = new StartMenuHandler();
 
     public static void main(String[] args) {
 
@@ -32,47 +36,64 @@ public class Main {
         window.setVisible(true);
         con = window.getContentPane();
 
+        //---------------------------------------------
+
         // Nadpis = Title
+
+           // Panel
         titleNamePanel = new JPanel();
         titleNamePanel.setBounds(100,100,600,100);
         titleNamePanel.setBackground(Color.GRAY);
+
+
+           // Label
         titleNameLabel = new JLabel("Team Builder");
         titleNameLabel.setForeground(Color.BLUE);
         titleNameLabel.setFont(titleFont);
-
+        titleNamePanel.add(titleNameLabel);
         //---------------------------------------------
-        // Tlacitka = Buttoms
+
+        // Tlacitka = Buttons
+
+        // Panel of buttons = Panel tlacitok
         startButtomPanel = new JPanel();
         startButtomPanel.setBounds(300,300,200,150);
         startButtomPanel.setBackground(Color.lightGray);
+        //startButtomPanel.setLayout(new GridLayout(3,1));
 
-        // Create / Vytvorit
+           // Create / Vytvorit
         create = new JButton("Create / Vytvorit");
         create.setBackground(Color.GRAY);
         create.setForeground(Color.BLUE);
         create.setFont(normalFont);
+        startButtomPanel.add(create);
 
-        // Change / Upravit
-        change = new JButton("Change / Upravit");
-        change.setBackground(Color.GRAY);
-        change.setForeground(Color.BLUE);
-        change.setFont(normalFont);
+        create.addActionListener(startMenuHandler);
 
-        // Split / Rozdelit
+           // Modify / Upravit
+        modify = new JButton("Modify / Upravit");
+        modify.setBackground(Color.GRAY);
+        modify.setForeground(Color.BLUE);
+        modify.setFont(normalFont);
+        startButtomPanel.add(modify);
+
+           // Split / Rozdelit
         split = new JButton("Split / Rozdelit");
         split.setBackground(Color.GRAY);
         split.setForeground(Color.BLUE);
         split.setFont(normalFont);
+        startButtomPanel.add(split);
 
         //------------------------------------------------
-        // Panels Baby
-        titleNamePanel.add(titleNameLabel);
-        startButtomPanel.add(create);
-        startButtomPanel.add(change);
-        startButtomPanel.add(split);
+
+        // Container (okno)
 
         con.add(titleNamePanel);
         con.add(startButtomPanel);
+
+        //------------------------------------------------
+
+        // Miniatura = TraySystem
 
         // Tray Menu = ikonka v rohu s moznostami..
         traySysMenu = new TraySysMenu();
@@ -88,6 +109,16 @@ public class Main {
 
     }
 
+    public class StartMenuHandler implements ActionListener{
+        CreateV createV = new CreateV();
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            titleNamePanel.setVisible(false);
+            startButtomPanel.setVisible(false);
+            createV.createTBScreen(con,normalFont);
+        }
+    }
 
     }
 
