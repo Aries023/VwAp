@@ -5,8 +5,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowStateListener;
 
 public class Main {
 
@@ -19,6 +17,7 @@ public class Main {
     Font titleFont = new Font("Times New Roman",Font.PLAIN,85);
     Font normalFont = new Font("Times New Roman",Font.PLAIN,28);
     StartMenuHandler startMenuHandler = new StartMenuHandler();
+
 
     public static void main(String[] args) {
 
@@ -98,18 +97,13 @@ public class Main {
         // Tray Menu = ikonka v rohu s moznostami..
         traySysMenu = new TraySysMenu();
         traySysMenu.systemTray(window);
-        window.addWindowStateListener(new WindowStateListener() {
-            @Override
-            public void windowStateChanged(WindowEvent e) {
-             traySysMenu.eventTray(window);
-            }
-        });
-
+        window.addWindowStateListener(e -> traySysMenu.eventTray(window));
 
 
     }
 
     public class StartMenuHandler implements ActionListener{
+
         CreateV createV = new CreateV();
 
         @Override

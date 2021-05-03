@@ -3,9 +3,8 @@ package doplnky;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.Objects;
 
 public class TraySysMenu {
     PopupMenu pop = new PopupMenu();
@@ -18,29 +17,23 @@ public class TraySysMenu {
             pop.add(mini);
             pop.add(exit);
 
-            mini.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    if (window.getState()== JFrame.ICONIFIED){
-                        window.setState(JFrame.NORMAL);
-                        mini.setLabel("Minimalizovat");
-                    }else {
-                        window.setState(JFrame.ICONIFIED);
-                        mini.setLabel("Obnovit");
-                    }
+            mini.addActionListener(e -> {
+                if (window.getState()== JFrame.ICONIFIED){
+                    window.setState(JFrame.NORMAL);
+                    mini.setLabel("Minimalizovat");
+                }else {
+                    window.setState(JFrame.ICONIFIED);
+                    mini.setLabel("Obnovit");
                 }
             });
-            exit.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    window.dispose();
-                    System.exit(0);
-                }
+            exit.addActionListener(e -> {
+                window.dispose();
+                System.exit(0);
             });
             SystemTray tr = SystemTray.getSystemTray();
             Image img =null;
             try {
-                img = ImageIO.read(TraySysMenu.class.getResourceAsStream("/icon02.png"));
+                img = ImageIO.read(Objects.requireNonNull(TraySysMenu.class.getResourceAsStream("/icon02.png")));
             } catch (IOException e) {
                 e.printStackTrace();
             }
