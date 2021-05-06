@@ -8,7 +8,7 @@ public class UI {
     JFrame window;
     JPanel titlePanel, startButtlonPanel, mainTextPanel, choiceButtonPanel, statusPanel;
     JLabel titleLabel, employePanel, employeNumberPanel, jobPanel, jobNumberPanel;
-    JButton startButton, choice1, choice2, choice3;
+    JButton startButton, choice1, choice2, choice3, choice4;
     JTextArea mainTextArea;
     Font titleFont = new Font("Times New Roman",Font.PLAIN,90);
     Font normalFont = new Font("Times New Roman",Font.PLAIN,26);
@@ -57,28 +57,26 @@ public class UI {
           // Main Text
         mainTextPanel = new JPanel();
         mainTextPanel.setBounds(100,100,600,250);
-        mainTextPanel.setBackground(Color.cyan);
         window.add(mainTextPanel);
 
         mainTextArea = new JTextArea("text area numero fantastic text");
-        // mainTextArea.setBounds(100,100,600,250);
-        // mainTextArea.setBackground(Color.green);
+        mainTextArea.setBounds(100,100,600,250);
+        mainTextArea.setBackground(Color.GRAY);
         mainTextArea.setForeground(Color.BLUE);
         mainTextArea.setFont(normalFont);
         mainTextArea.setLineWrap(true);
         // mainTextArea.setWrapStyleWord(true);
-        // mainTextArea.setEditable(false);
+        mainTextArea.setEditable(false);
         mainTextPanel.add(mainTextArea);
 
           // Buttons
         choiceButtonPanel = new JPanel();
         choiceButtonPanel.setBounds(250,350,350,150);
-        choiceButtonPanel.setBackground(Color.ORANGE);
+        choiceButtonPanel.setBackground(Color.GRAY);
         choiceButtonPanel.setLayout(new GridLayout(4,1));
         window.add(choiceButtonPanel);
 
         choice1 = new JButton("Create Team");
-        choice1.setBackground(Color.black);
         choice1.setForeground(Color.BLUE);
         choice1.setFont(normalFont);
         choice1.setFocusPainted(false);
@@ -87,7 +85,6 @@ public class UI {
         choiceButtonPanel.add(choice1);
 
         choice2 = new JButton("modificate Team");
-        choice2.setBackground(Color.LIGHT_GRAY);
         choice2.setForeground(Color.BLUE);
         choice2.setFont(normalFont);
         choice2.setFocusPainted(false);
@@ -96,12 +93,18 @@ public class UI {
         choiceButtonPanel.add(choice2);
 
         choice3 = new JButton("Spin Team");
-        // choice3.setBackground(Color.LIGHT_GRAY);
         choice3.setForeground(Color.BLUE);
         choice3.setFont(normalFont);
         choice3.addActionListener(choiceHandler);
         choice3.setActionCommand("ch3");
         choiceButtonPanel.add(choice3);
+
+        choice4 = new JButton("Back to Menu");
+        choice4.setForeground(Color.BLUE);
+        choice4.setFont(normalFont);
+        choice4.addActionListener(choiceHandler);
+        choice4.setActionCommand("ch4");
+        choiceButtonPanel.add(choice4);
 
           // Status Panel
 

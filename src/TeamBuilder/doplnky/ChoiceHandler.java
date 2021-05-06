@@ -26,6 +26,9 @@ public class ChoiceHandler implements ActionListener {
                 break;
             case "ch3" :
                 break;
+            case "ch4" :
+                vm.showTitleScreen();
+                break;
         }
     }
 }
