@@ -1,3 +1,5 @@
+package TeamBuilder.doplnky;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -11,7 +13,7 @@ public class UI {
     Font titleFont = new Font("Times New Roman",Font.PLAIN,90);
     Font normalFont = new Font("Times New Roman",Font.PLAIN,26);
 
-    public void createUI(){
+    public void createUI(ChoiceHandler choiceHandler){
 
         // Window
         window = new JFrame();
@@ -41,6 +43,8 @@ public class UI {
         startButton.setForeground(Color.BLUE);
         startButton.setFont(normalFont);
         startButton.setFocusPainted(false);
+        startButton.addActionListener(choiceHandler);
+        startButton.setActionCommand("start");
         startButtlonPanel.add(startButton);
 
         window.add(titlePanel);
@@ -77,18 +81,26 @@ public class UI {
         choice1.setBackground(Color.black);
         choice1.setForeground(Color.BLUE);
         choice1.setFont(normalFont);
+        choice1.setFocusPainted(false);
+        choice1.addActionListener(choiceHandler);
+        choice1.setActionCommand("ch1");
         choiceButtonPanel.add(choice1);
 
         choice2 = new JButton("modificate Team");
         choice2.setBackground(Color.LIGHT_GRAY);
         choice2.setForeground(Color.BLUE);
         choice2.setFont(normalFont);
+        choice2.setFocusPainted(false);
+        choice2.addActionListener(choiceHandler);
+        choice2.setActionCommand("ch2");
         choiceButtonPanel.add(choice2);
 
         choice3 = new JButton("Spin Team");
         // choice3.setBackground(Color.LIGHT_GRAY);
         choice3.setForeground(Color.BLUE);
         choice3.setFont(normalFont);
+        choice3.addActionListener(choiceHandler);
+        choice3.setActionCommand("ch3");
         choiceButtonPanel.add(choice3);
 
           // Status Panel

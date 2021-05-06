@@ -1,4 +1,4 @@
-package doplnky;
+package TeamBuilder.doplnky;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -33,7 +33,7 @@ public class TraySysMenu {
             SystemTray tr = SystemTray.getSystemTray();
             Image img =null;
             try {
-                img = ImageIO.read(Objects.requireNonNull(TraySysMenu.class.getResourceAsStream("/icon02.png")));
+                img = ImageIO.read(Objects.requireNonNull(TraySysMenu.class.getResourceAsStream("/TeamBuilder/icon02.png")));
             } catch (IOException e) {
                 e.printStackTrace();
             }
