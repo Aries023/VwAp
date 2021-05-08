@@ -7,7 +7,7 @@ public class UI {
 
     JFrame window;
     JPanel titlePanel, startButtlonPanel, mainTextPanel, choiceButtonPanel, statusPanel;
-    JLabel titleLabel, employePanel, employeNumberPanel, jobPanel, jobNumberPanel;
+    JLabel titleLabel, employePanel, employeNumberPanel, jobPanel, jobNumberPanel, obrazokTitle1, obrazokTitle2;
     JButton startButton, choice1, choice2, choice3, choice4;
     JTextArea mainTextArea;
     Font titleFont = new Font("Times New Roman",Font.PLAIN,90);
@@ -46,6 +46,9 @@ public class UI {
         startButton.addActionListener(choiceHandler);
         startButton.setActionCommand("start");
         startButtlonPanel.add(startButton);
+
+          // Image -----------------
+
 
         window.add(titlePanel);
         window.add(startButtlonPanel);
