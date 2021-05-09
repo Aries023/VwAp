@@ -1,13 +1,16 @@
 package TeamBuilder.doplnky;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
+import java.util.Objects;
 
 public class UI {
 
     JFrame window;
-    JPanel titlePanel, startButtlonPanel, mainTextPanel, choiceButtonPanel, statusPanel;
-    JLabel titleLabel, employePanel, employeNumberPanel, jobPanel, jobNumberPanel, obrazokTitle1, obrazokTitle2;
+    JPanel titlePanel, startButtlonPanel, mainTextPanel, choiceButtonPanel, statusPanel, obrazokTitlePanel1, obrazokTitlePanel2;
+    JLabel titleLabel, employePanel, employeNumberPanel, jobPanel, jobNumberPanel,titleImage, titleImage2;
     JButton startButton, choice1, choice2, choice3, choice4;
     JTextArea mainTextArea;
     Font titleFont = new Font("Times New Roman",Font.PLAIN,90);
@@ -48,10 +51,26 @@ public class UI {
         startButtlonPanel.add(startButton);
 
           // Image -----------------
+        try {
+            titleImage = new JLabel(new ImageIcon(ImageIO.read(Objects.requireNonNull(UI.class.getResourceAsStream("/Res/icon.png")))));
+            titleImage2 = new JLabel(new ImageIcon(ImageIO.read(Objects.requireNonNull(UI.class.getResourceAsStream("/Res/icon.png")))));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        obrazokTitlePanel1 = new JPanel();
+        obrazokTitlePanel1.setBounds(0,0,100,100);
+        obrazokTitlePanel2 = new JPanel();
+        obrazokTitlePanel2.setBounds(685,0,100,100);
+
+        obrazokTitlePanel1.add(titleImage);
+        obrazokTitlePanel2.add(titleImage2);
 
 
         window.add(titlePanel);
         window.add(startButtlonPanel);
+        window.add(obrazokTitlePanel1);
+        window.add(obrazokTitlePanel2);
 
         //---------------------------------------------------------------------
 
