@@ -134,13 +134,13 @@ public class UI {
         mainTextPanel.setBounds(100,100,600,250);
         window.add(mainTextPanel);
 
-        mainTextArea = new JTextArea("text area numero fantastic text");
+        mainTextArea = new JTextArea("Now you can chose if you want create your team and work positions, modificate your team or just spin your created team.. \n\n please make a smile  :)");
         mainTextArea.setBounds(100,100,600,250);
         mainTextArea.setBackground(Color.GRAY);
         mainTextArea.setForeground(Color.BLUE);
         mainTextArea.setFont(normalFont);
         mainTextArea.setLineWrap(true);
-        // mainTextArea.setWrapStyleWord(true);
+        mainTextArea.setWrapStyleWord(true);
         mainTextArea.setEditable(false);
         mainTextPanel.add(mainTextArea);
 
