@@ -8,21 +8,21 @@ import java.util.Objects;
 
 public class UI {
 
-    String day;
-    String date;
+
     public UI(String datumArg, String denArg) {
         this.date = datumArg;
         this.day = denArg;
     }
 
     JFrame window;
-    JPanel titlePanel, startButtlonPanel, mainTextPanel, choiceButtonPanel, statusPanel, obrazokTitlePanel1, obrazokTitlePanel2, datePanel, dayPanel;
+    JPanel titlePanel, startButtlonPanel, mainTextPanel, choiceButtonPanel, statusPanel, obrazokTitlePanel1, obrazokTitlePanel2, dateP, dayP, versionP, ariP;
     JLabel titleLabel, employePanel, employeNumberPanel, jobPanel, jobNumberPanel,titleImage, titleImage2;
     JButton startButton, choice1, choice2, choice3, choice4;
-    JTextArea mainTextArea, dayTextArea, dateTextArea;
+    JTextArea mainTextArea, dayTextArea, dateTextArea, verTA, ariTA;
     Font titleFont = new Font("Times New Roman",Font.PLAIN,90);
     Font normalFont = new Font("Times New Roman",Font.PLAIN,26);
     Font normalFontMini = new Font("Times New Roman",Font.PLAIN,15);
+    String day,date,ver;
 
     public void createUI(ChoiceHandler choiceHandler){
 
@@ -75,34 +75,55 @@ public class UI {
         obrazokTitlePanel2.add(titleImage2);
 
           // Datumi
-        datePanel = new JPanel();
-        datePanel.setBounds(0,540,82,20);
-        datePanel.setLayout(new CardLayout());
+        dateP = new JPanel();
+        dateP.setBounds(0,540,82,20);
+        //dateP.setLayout(new CardLayout());
         //datePanel.setBackground(Color.GRAY);
         dateTextArea = new JTextArea(date);
 
         dateTextArea.setForeground(Color.BLUE);
         dateTextArea.setFont(normalFontMini);
         dateTextArea.setEditable(false);
-        datePanel.add(dateTextArea);
+        dateP.add(dateTextArea);
 
-        dayPanel = new JPanel();
-        dayPanel.setBounds(0,520,82,20);
-        dayPanel.setLayout(new CardLayout());
+        dayP = new JPanel();
+        dayP.setBounds(0,520,82,20);
+        //dayP.setLayout(new CardLayout());
         //dayPanel.setBackground(Color.red);
         dayTextArea = new JTextArea(day);
         dayTextArea.setForeground(Color.BLUE);
         dayTextArea.setFont(normalFontMini);
         dayTextArea.setEditable(false);
-        dayPanel.add(dayTextArea);
+        dayP.add(dayTextArea);
+
+          // Version
+        versionP = new JPanel();
+        versionP.setBounds(700,520,82,20);
+        ver = "ver: 0.33";
+        verTA = new JTextArea(ver);
+        verTA.setForeground(Color.BLUE);
+        verTA.setFont(normalFontMini);
+        verTA.setEditable(false);
+        versionP.add(verTA);
+
+          // Autor
+        ariP = new JPanel();
+        ariP.setBounds(690,540,92,20);
+        ariTA = new JTextArea("Autor: Aries023");
+        ariTA.setForeground(Color.BLUE);
+        ariTA.setFont(normalFontMini);
+        ariTA.setEditable(false);
+        ariP.add(ariTA);
 
 
+        window.add(ariP);
         window.add(titlePanel);
         window.add(startButtlonPanel);
         window.add(obrazokTitlePanel1);
         window.add(obrazokTitlePanel2);
-        window.add(datePanel);
-        window.add(dayPanel);
+        window.add(dateP);
+        window.add(dayP);
+        window.add(versionP);
 
         //---------------------------------------------------------------------
 
