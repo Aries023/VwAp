@@ -8,13 +8,21 @@ import java.util.Objects;
 
 public class UI {
 
+    String day;
+    String date;
+    public UI(String datumArg, String denArg) {
+        this.date = datumArg;
+        this.day = denArg;
+    }
+
     JFrame window;
-    JPanel titlePanel, startButtlonPanel, mainTextPanel, choiceButtonPanel, statusPanel, obrazokTitlePanel1, obrazokTitlePanel2;
+    JPanel titlePanel, startButtlonPanel, mainTextPanel, choiceButtonPanel, statusPanel, obrazokTitlePanel1, obrazokTitlePanel2, datePanel, dayPanel;
     JLabel titleLabel, employePanel, employeNumberPanel, jobPanel, jobNumberPanel,titleImage, titleImage2;
     JButton startButton, choice1, choice2, choice3, choice4;
-    JTextArea mainTextArea;
+    JTextArea mainTextArea, dayTextArea, dateTextArea;
     Font titleFont = new Font("Times New Roman",Font.PLAIN,90);
     Font normalFont = new Font("Times New Roman",Font.PLAIN,26);
+    Font normalFontMini = new Font("Times New Roman",Font.PLAIN,15);
 
     public void createUI(ChoiceHandler choiceHandler){
 
@@ -30,7 +38,7 @@ public class UI {
 
           // Title
         titlePanel = new JPanel();
-        titlePanel.setBounds(100,100,600,120);
+        titlePanel.setBounds(100,150,600,120);
         titlePanel.setBackground(Color.GRAY);
         titleLabel = new JLabel("Team Builder");
         titleLabel.setForeground(Color.BLUE);
@@ -66,11 +74,35 @@ public class UI {
         obrazokTitlePanel1.add(titleImage);
         obrazokTitlePanel2.add(titleImage2);
 
+          // Datumi
+        datePanel = new JPanel();
+        datePanel.setBounds(0,540,82,20);
+        datePanel.setLayout(new CardLayout());
+        //datePanel.setBackground(Color.GRAY);
+        dateTextArea = new JTextArea(date);
+
+        dateTextArea.setForeground(Color.BLUE);
+        dateTextArea.setFont(normalFontMini);
+        dateTextArea.setEditable(false);
+        datePanel.add(dateTextArea);
+
+        dayPanel = new JPanel();
+        dayPanel.setBounds(0,520,82,20);
+        dayPanel.setLayout(new CardLayout());
+        //dayPanel.setBackground(Color.red);
+        dayTextArea = new JTextArea(day);
+        dayTextArea.setForeground(Color.BLUE);
+        dayTextArea.setFont(normalFontMini);
+        dayTextArea.setEditable(false);
+        dayPanel.add(dayTextArea);
+
 
         window.add(titlePanel);
         window.add(startButtlonPanel);
         window.add(obrazokTitlePanel1);
         window.add(obrazokTitlePanel2);
+        window.add(datePanel);
+        window.add(dayPanel);
 
         //---------------------------------------------------------------------
 
