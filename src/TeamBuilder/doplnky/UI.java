@@ -21,9 +21,9 @@ public class UI {
     }
 
     JFrame window;
-    JPanel titlePanel, startButtlonPanel, mainTextPanel, choiceButtonPanel, statusPanel, obrazokTitlePanel1, obrazokTitlePanel2, dateP, dayP, versionP, ariP;
+    JPanel titlePanel, startButtlonP, mainTextPanel, choiceBP, jobsP, teamP, statusPanel, obrazokTitlePanel1, obrazokTitlePanel2, dateP, dayP, versionP, ariP;
     JLabel titleLabel, employePanel, employeNumberPanel, jobPanel, jobNumberPanel,titleImage, titleImage2;
-    JButton startB, jobsB, teamB, divideB, backB;
+    JButton startB, jobsB, teamB, divideB, backB, createJobs, modifiJobs, backJobsB, createTeam, modifiTeam, backTeamB;
     JTextArea mainTextArea, dayTextArea, dateTextArea, verTA, ariTA;
     Font titleFont = new Font("Times New Roman",Font.PLAIN,90);
     Font normalFont = new Font("Times New Roman",Font.PLAIN,26);
@@ -51,9 +51,9 @@ public class UI {
         titleLabel.setFont(titleFont);
         titlePanel.add(titleLabel);
 
-          // Button
-        startButtlonPanel = new JPanel();
-        startButtlonPanel.setBounds(300,400,200,100);
+          // Start Button
+        startButtlonP = new JPanel();
+        startButtlonP.setBounds(300,400,200,100);
         //startButtlonPanel.setBackground(Color.cyan);
         startB = new JButton("Start");
         startB.setBackground(Color.GRAY);
@@ -62,7 +62,7 @@ public class UI {
         startB.setFocusPainted(false);
         startB.addActionListener(choiceHandler);
         startB.setActionCommand("start");
-        startButtlonPanel.add(startB);
+        startButtlonP.add(startB);
 
           // Image -----------------
         try {
@@ -80,7 +80,7 @@ public class UI {
         obrazokTitlePanel1.add(titleImage);
         obrazokTitlePanel2.add(titleImage2);
 
-          // Datumi
+          // Date / Day
         dateP = new JPanel();
         dateP.setBounds(0,540,82,20);
         //dateP.setLayout(new CardLayout());
@@ -124,7 +124,7 @@ public class UI {
 
         window.add(ariP);
         window.add(titlePanel);
-        window.add(startButtlonPanel);
+        window.add(startButtlonP);
         window.add(obrazokTitlePanel1);
         window.add(obrazokTitlePanel2);
         window.add(dateP);
@@ -154,11 +154,11 @@ public class UI {
         mainTextPanel.add(mainTextArea);
 
           // Buttons
-        choiceButtonPanel = new JPanel();
-        choiceButtonPanel.setBounds(250,350,350,150);
-        choiceButtonPanel.setBackground(Color.GRAY);
-        choiceButtonPanel.setLayout(new GridLayout(4,1));
-        window.add(choiceButtonPanel);
+        choiceBP = new JPanel();
+        choiceBP.setBounds(250,350,350,150);
+        choiceBP.setBackground(Color.GRAY);
+        choiceBP.setLayout(new GridLayout(4,1));
+        window.add(choiceBP);
 
         jobsB = new JButton("Jobs");
         jobsB.setForeground(Color.BLUE);
@@ -166,7 +166,7 @@ public class UI {
         jobsB.setFocusPainted(false);
         jobsB.addActionListener(choiceHandler);
         jobsB.setActionCommand("ch1");
-        choiceButtonPanel.add(jobsB);
+        choiceBP.add(jobsB);
 
         teamB = new JButton("Team");
         teamB.setForeground(Color.BLUE);
@@ -174,21 +174,21 @@ public class UI {
         teamB.setFocusPainted(false);
         teamB.addActionListener(choiceHandler);
         teamB.setActionCommand("ch2");
-        choiceButtonPanel.add(teamB);
+        choiceBP.add(teamB);
 
         divideB = new JButton("Divide");
         divideB.setForeground(Color.BLUE);
         divideB.setFont(normalFont);
         divideB.addActionListener(choiceHandler);
         divideB.setActionCommand("ch3");
-        choiceButtonPanel.add(divideB);
+        choiceBP.add(divideB);
 
         backB = new JButton("Back to Menu");
         backB.setForeground(Color.BLUE);
         backB.setFont(normalFont);
         backB.addActionListener(choiceHandler);
         backB.setActionCommand("ch4");
-        choiceButtonPanel.add(backB);
+        choiceBP.add(backB);
 
           // Status Panel
 
@@ -220,6 +220,40 @@ public class UI {
         jobNumberPanel.setFont(normalFont);
         statusPanel.add(jobNumberPanel);
 
+        //---------------------------------------------------------------------
+
+        // Jobs Screen
+        jobsP = new JPanel();
+        jobsP.setBounds(250,350,350,150);
+        jobsP.setBackground(Color.GRAY);
+        jobsP.setLayout(new GridLayout(2,1));
+        window.add(jobsP);
+
+        createJobs = new JButton("Create your jobs");
+        createJobs.setForeground(Color.BLUE);
+        createJobs.setFont(normalFont);
+        createJobs.addActionListener(choiceHandler);
+        createJobs.setActionCommand("createJobs");
+        jobsP.add(createJobs);
+
+        modifiJobs = new JButton("Adjust your jobs");
+        modifiJobs.setForeground(Color.BLUE);
+        modifiJobs.setFont(normalFont);
+        modifiJobs.addActionListener(choiceHandler);
+        modifiJobs.setActionCommand("modifiJobs");
+        jobsP.add(modifiJobs);
+
+        backJobsB = new JButton("Back");
+        backJobsB.setForeground(Color.BLUE);
+        backJobsB.setFont(normalFont);
+        backJobsB.addActionListener(choiceHandler);
+        backJobsB.setActionCommand("start");
+        jobsP.add(backJobsB);
+
+        //---------------------------------------------------------------------
+
+        // Team Screen
+        teamP = new JPanel();
 
         window.setVisible(true);
     }

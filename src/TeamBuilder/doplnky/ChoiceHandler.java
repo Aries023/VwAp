@@ -21,6 +21,7 @@ public class ChoiceHandler implements ActionListener {
                 vm.showWorkScreen();
                 break;
             case "ch1" :
+                vm.showJobsScreen();
                 break;
             case "ch2" :
                 break;
@@ -29,6 +30,11 @@ public class ChoiceHandler implements ActionListener {
             case "ch4" :
                 vm.showTitleScreen();
                 break;
+            case "createJobs" :
+                break;
+            case "modifiJobs" :
+                break;
+
         }
     }
 }
