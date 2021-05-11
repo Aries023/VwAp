@@ -7,7 +7,13 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class UI {
-
+    /**
+     * UI je class pre surovy Frame.. pojdu sem iba hotove veci z triedy Main (cez konstruktor) v ktorej je spravena instancia tejto triedy
+     * a rozposiela tu instanciu do dalsich class kde s touto class (UI) mozu pracovat bez zbytocnych problemov
+     *
+     * @param datumArg  => sem pride dnesny datum
+     * @param denArg    => sem pride co je dneska za den
+     */
 
     public UI(String datumArg, String denArg) {
         this.date = datumArg;
@@ -17,7 +23,7 @@ public class UI {
     JFrame window;
     JPanel titlePanel, startButtlonPanel, mainTextPanel, choiceButtonPanel, statusPanel, obrazokTitlePanel1, obrazokTitlePanel2, dateP, dayP, versionP, ariP;
     JLabel titleLabel, employePanel, employeNumberPanel, jobPanel, jobNumberPanel,titleImage, titleImage2;
-    JButton startButton, choice1, choice2, choice3, choice4;
+    JButton startB, jobsB, teamB, divideB, backB;
     JTextArea mainTextArea, dayTextArea, dateTextArea, verTA, ariTA;
     Font titleFont = new Font("Times New Roman",Font.PLAIN,90);
     Font normalFont = new Font("Times New Roman",Font.PLAIN,26);
@@ -49,14 +55,14 @@ public class UI {
         startButtlonPanel = new JPanel();
         startButtlonPanel.setBounds(300,400,200,100);
         //startButtlonPanel.setBackground(Color.cyan);
-        startButton = new JButton("Start");
-        startButton.setBackground(Color.GRAY);
-        startButton.setForeground(Color.BLUE);
-        startButton.setFont(normalFont);
-        startButton.setFocusPainted(false);
-        startButton.addActionListener(choiceHandler);
-        startButton.setActionCommand("start");
-        startButtlonPanel.add(startButton);
+        startB = new JButton("Start");
+        startB.setBackground(Color.GRAY);
+        startB.setForeground(Color.BLUE);
+        startB.setFont(normalFont);
+        startB.setFocusPainted(false);
+        startB.addActionListener(choiceHandler);
+        startB.setActionCommand("start");
+        startButtlonPanel.add(startB);
 
           // Image -----------------
         try {
@@ -134,7 +140,10 @@ public class UI {
         mainTextPanel.setBounds(100,100,600,250);
         window.add(mainTextPanel);
 
-        mainTextArea = new JTextArea("Now you can chose if you want create your team and work positions, modificate your team or just spin your created team.. \n\n please make a smile  :)");
+        mainTextArea = new JTextArea("""
+                Now choose whether you want to create jobs, employees or divide the team into jobs.
+                \s
+                And don't forget to make a smile on your workmates""");
         mainTextArea.setBounds(100,100,600,250);
         mainTextArea.setBackground(Color.GRAY);
         mainTextArea.setForeground(Color.BLUE);
@@ -151,35 +160,35 @@ public class UI {
         choiceButtonPanel.setLayout(new GridLayout(4,1));
         window.add(choiceButtonPanel);
 
-        choice1 = new JButton("Create Team");
-        choice1.setForeground(Color.BLUE);
-        choice1.setFont(normalFont);
-        choice1.setFocusPainted(false);
-        choice1.addActionListener(choiceHandler);
-        choice1.setActionCommand("ch1");
-        choiceButtonPanel.add(choice1);
+        jobsB = new JButton("Jobs");
+        jobsB.setForeground(Color.BLUE);
+        jobsB.setFont(normalFont);
+        jobsB.setFocusPainted(false);
+        jobsB.addActionListener(choiceHandler);
+        jobsB.setActionCommand("ch1");
+        choiceButtonPanel.add(jobsB);
 
-        choice2 = new JButton("modificate Team");
-        choice2.setForeground(Color.BLUE);
-        choice2.setFont(normalFont);
-        choice2.setFocusPainted(false);
-        choice2.addActionListener(choiceHandler);
-        choice2.setActionCommand("ch2");
-        choiceButtonPanel.add(choice2);
+        teamB = new JButton("Team");
+        teamB.setForeground(Color.BLUE);
+        teamB.setFont(normalFont);
+        teamB.setFocusPainted(false);
+        teamB.addActionListener(choiceHandler);
+        teamB.setActionCommand("ch2");
+        choiceButtonPanel.add(teamB);
 
-        choice3 = new JButton("Spin Team");
-        choice3.setForeground(Color.BLUE);
-        choice3.setFont(normalFont);
-        choice3.addActionListener(choiceHandler);
-        choice3.setActionCommand("ch3");
-        choiceButtonPanel.add(choice3);
+        divideB = new JButton("Divide");
+        divideB.setForeground(Color.BLUE);
+        divideB.setFont(normalFont);
+        divideB.addActionListener(choiceHandler);
+        divideB.setActionCommand("ch3");
+        choiceButtonPanel.add(divideB);
 
-        choice4 = new JButton("Back to Menu");
-        choice4.setForeground(Color.BLUE);
-        choice4.setFont(normalFont);
-        choice4.addActionListener(choiceHandler);
-        choice4.setActionCommand("ch4");
-        choiceButtonPanel.add(choice4);
+        backB = new JButton("Back to Menu");
+        backB.setForeground(Color.BLUE);
+        backB.setFont(normalFont);
+        backB.addActionListener(choiceHandler);
+        backB.setActionCommand("ch4");
+        choiceButtonPanel.add(backB);
 
           // Status Panel
 
@@ -190,7 +199,7 @@ public class UI {
         window.add(statusPanel);
 
 
-        employePanel = new JLabel("Employe");
+        employePanel = new JLabel("Employees");
         // employePanel.setBackground(Color.LIGHT_GRAY);
         employePanel.setForeground(Color.BLUE);
         employePanel.setFont(normalFont);
