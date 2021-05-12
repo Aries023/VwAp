@@ -226,7 +226,7 @@ public class UI {
         jobsP = new JPanel();
         jobsP.setBounds(250,350,350,150);
         jobsP.setBackground(Color.GRAY);
-        jobsP.setLayout(new GridLayout(2,1));
+        jobsP.setLayout(new GridLayout(3,1));
         window.add(jobsP);
 
         createJobs = new JButton("Create your jobs");
