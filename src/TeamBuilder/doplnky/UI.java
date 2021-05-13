@@ -21,14 +21,15 @@ public class UI {
     }
 
     JFrame window;
-    JPanel titlePanel, startButtlonP, mainTextPanel, choiceBP, jobsP, teamP, statusPanel, obrazokTitlePanel1, obrazokTitlePanel2, dateP, dayP, versionP, ariP;
+    JPanel titlePanel, startButtlonP, mainTextPanel, choiceBP, jobsP, teamP, statusPanel, obrazokTitlePanel1, obrazokTitlePanel2, dateP, dayP, versionP, ariP, jobsTextAreaP, jobCButP;
     JLabel titleLabel, employePanel, employeNumberPanel, jobPanel, jobNumberPanel,titleImage, titleImage2;
-    JButton startB, jobsB, teamB, divideB, backB, createJobs, modifiJobs, backJobsB, createTeam, modifiTeam, backTeamB;
-    JTextArea mainTextArea, dayTextArea, dateTextArea, verTA, ariTA;
+    JButton startB, jobsB, teamB, divideB, backB, createJobs, modifiJobs, backJobsB, createTeam, modifiTeam, backTeamB, jobBImput, jobBIDone;
+    JTextArea mainTextArea, dayTextArea, dateTextArea, verTA, ariTA, jobsTextArea;
     Font titleFont = new Font("Times New Roman",Font.PLAIN,90);
     Font normalFont = new Font("Times New Roman",Font.PLAIN,26);
     Font normalFontMini = new Font("Times New Roman",Font.PLAIN,15);
     String day,date,ver;
+    byte jobsNumber;
 
     public void createUI(ChoiceHandler choiceHandler){
 
@@ -144,7 +145,7 @@ public class UI {
                 Now choose whether you want to create jobs, employees or divide the team into jobs.
                 \s
                 And don't forget to make a smile on your workmates""");
-        mainTextArea.setBounds(100,100,600,250);
+        mainTextArea.setBounds(mainTextPanel.getBounds());
         mainTextArea.setBackground(Color.GRAY);
         mainTextArea.setForeground(Color.BLUE);
         mainTextArea.setFont(normalFont);
@@ -193,7 +194,7 @@ public class UI {
           // Status Panel
 
         statusPanel = new JPanel();
-        statusPanel.setBounds(100,15,600,50);
+        statusPanel.setBounds(110,15,585,50);
         // statusPanel.setBackground(Color.LIGHT_GRAY);
         statusPanel.setLayout(new GridLayout(1,4));
         window.add(statusPanel);
@@ -215,7 +216,8 @@ public class UI {
         jobPanel.setFont(normalFont);
         statusPanel.add(jobPanel);
 
-        jobNumberPanel = new JLabel();
+        jobsNumber = 0;
+        jobNumberPanel = new JLabel(String.valueOf(jobsNumber));
         jobNumberPanel.setForeground(Color.BLUE);
         jobNumberPanel.setFont(normalFont);
         statusPanel.add(jobNumberPanel);
@@ -249,6 +251,30 @@ public class UI {
         backJobsB.addActionListener(choiceHandler);
         backJobsB.setActionCommand("start");
         jobsP.add(backJobsB);
+
+        // Jobs create screen
+        jobsTextAreaP = new JPanel();
+        jobsTextAreaP.setBounds(180,150,450,50);
+        window.add(jobsTextAreaP);
+
+        jobsTextArea = new JTextArea();
+        jobsTextArea.setBounds(jobsTextAreaP.getBounds());
+        jobsTextArea.setForeground(Color.BLUE);
+        jobsTextArea.setFont(normalFont);
+        jobsTextArea.setLineWrap(true);
+        jobsTextArea.setWrapStyleWord(true);
+        jobsTextAreaP.add(jobsTextArea);
+
+        jobCButP = new JPanel();
+        jobCButP.setBounds(180,210,450,80);
+        window.add(jobCButP);
+
+        jobBImput = new JButton("Next");
+        jobBImput.setForeground(Color.BLUE);
+        jobBImput.setFont(normalFontMini);
+        jobBImput.addActionListener(choiceHandler);
+        jobBImput.setActionCommand("takeJob");
+        jobCButP.add(jobBImput);
 
         //---------------------------------------------------------------------
 

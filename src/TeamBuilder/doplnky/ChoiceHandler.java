@@ -1,14 +1,18 @@
 package TeamBuilder.doplnky;
 
+import TeamBuilder.miniDatabase.Jobs;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ChoiceHandler implements ActionListener {
 
     VisibilityManager vm;
+    Jobs jobs;
 
-    public ChoiceHandler(VisibilityManager visibilityManager) {
+    public ChoiceHandler(VisibilityManager visibilityManager, Jobs jobsManagment) {
         vm = visibilityManager;
+        jobs = jobsManagment;
     }
 
     @Override
@@ -31,8 +35,16 @@ public class ChoiceHandler implements ActionListener {
                 vm.showTitleScreen();
                 break;
             case "createJobs" :
+                vm.creatorJobs();
                 break;
             case "modifiJobs" :
+                break;
+            case "takeJob" :
+                jobs.text = vm.ui.jobsTextArea.getText();
+                jobs.createJobs();
+                vm.ui.jobsNumber++;
+                vm.ui.jobNumberPanel.setText(String.valueOf(vm.ui.jobsNumber));
+                vm.ui.mainTextArea.setText(String.valueOf(jobs.jobpositions));
                 break;
 
         }

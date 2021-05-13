@@ -20,6 +20,8 @@ public class VisibilityManager {
         ui.choiceBP.setVisible(false);
         ui.jobsP.setVisible(false);
         ui.teamP.setVisible(false);
+        ui.jobsTextAreaP.setVisible(false);
+        ui.jobCButP.setVisible(false);
     }
 
     public void showWorkScreen(){
@@ -38,6 +40,7 @@ public class VisibilityManager {
         ui.startButtlonP.setVisible(false);
         ui.jobsP.setVisible(false);
         ui.teamP.setVisible(false);
+        ui.jobsTextAreaP.setVisible(false);
     }
 
     public void showJobsScreen(){
@@ -51,5 +54,31 @@ public class VisibilityManager {
 
         // Hide Work Screen
         ui.choiceBP.setVisible(false);
+        ui.jobCButP.setVisible(false);
+
+        ui.mainTextPanel.setBounds(100,100,600,250);
+        ui.mainTextArea.setBounds(ui.mainTextPanel.getBounds());
+    }
+
+    public void creatorJobs(){
+
+        ui.mainTextPanel.setBounds(90,400,585,250);
+        ui.mainTextArea.setBounds(ui.mainTextPanel.getBounds());
+        ui.mainTextArea.setText("""
+                zadaj meno pozicie a klikni na tlacitko next
+                \s
+                az zadas poslednu poziciu a stlacis next, mozes zmacknut end""");
+
+        // Show creatorJobs
+        ui.jobsTextAreaP.setVisible(true);
+        ui.jobCButP.setVisible(true);
+
+        // Hide Jobs Screen
+//        ui.mainTextPanel.setVisible(false);
+        ui.choiceBP.setVisible(false);
+        ui.titlePanel.setVisible(false);
+        ui.startButtlonP.setVisible(false);
+        ui.jobsP.setVisible(false);
+        ui.teamP.setVisible(false);
     }
 }
