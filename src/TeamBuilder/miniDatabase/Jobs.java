@@ -5,13 +5,13 @@ import java.util.List;
 
 public class Jobs {
 
-    public List <String> jobpositions = new ArrayList<>();
+    public List <String> jobPositions = new ArrayList<>();
     public String text;
 
     public void createJobs (){
 
 
-        jobpositions.add(text);
+        jobPositions.add(text);
 
 
     }

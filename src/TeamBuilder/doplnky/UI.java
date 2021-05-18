@@ -161,7 +161,7 @@ public class UI {
         choiceBP.setLayout(new GridLayout(4,1));
         window.add(choiceBP);
 
-        jobsB = new JButton("Jobs");
+        jobsB = new JButton("Create");
         jobsB.setForeground(Color.BLUE);
         jobsB.setFont(normalFont);
         jobsB.setFocusPainted(false);
@@ -169,7 +169,7 @@ public class UI {
         jobsB.setActionCommand("ch1");
         choiceBP.add(jobsB);
 
-        teamB = new JButton("Team");
+        teamB = new JButton("Adjust");
         teamB.setForeground(Color.BLUE);
         teamB.setFont(normalFont);
         teamB.setFocusPainted(false);
@@ -238,11 +238,11 @@ public class UI {
         createJobs.setActionCommand("createJobs");
         jobsP.add(createJobs);
 
-        modifiJobs = new JButton("Adjust your jobs");
+        modifiJobs = new JButton("Create your team");
         modifiJobs.setForeground(Color.BLUE);
         modifiJobs.setFont(normalFont);
         modifiJobs.addActionListener(choiceHandler);
-        modifiJobs.setActionCommand("modifiJobs");
+        modifiJobs.setActionCommand("createTeam");
         jobsP.add(modifiJobs);
 
         backJobsB = new JButton("Back");
