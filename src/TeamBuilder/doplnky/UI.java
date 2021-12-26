@@ -22,16 +22,16 @@ public class UI {
 
     JFrame window;
     JPanel titlePanel, startButtlonP, mainTextPanel, choiceBP, jobsP, teamP, statusPanel, obrazokTitlePanel1, obrazokTitlePanel2, dateP, dayP, versionP, ariP, jobsTextAreaP, jobCButP;
-    JLabel titleLabel, employePanel, employeNumberPanel, jobPanel, jobNumberPanel,titleImage, titleImage2;
-    JButton startB, jobsB, teamB, divideB, backB, createJobs, modifiJobs, backJobsB, createTeam, modifiTeam, backTeamB, jobBImput, jobBIDone;
+    JLabel titleLabel, employeButP, employeNumberPanel, jobPanel, jobNumberPanel,titleImage, titleImage2;
+    JButton startB, jobsB, teamB, divideB, backB, createJobs, modifiJobs, backJobsB, createEmploye, modifiTeam, backEmployeB, jobBImput, jobBIDone;
     JTextArea mainTextArea, dayTextArea, dateTextArea, verTA, ariTA, jobsTextArea;
     Font titleFont = new Font("Times New Roman",Font.PLAIN,90);
     Font normalFont = new Font("Times New Roman",Font.PLAIN,26);
     Font normalFontMini = new Font("Times New Roman",Font.PLAIN,15);
     String day,date,ver;
-    byte jobsNumber;
+    byte jobsNumber , employeeNumber;
 
-    public void createUI(ChoiceHandler choiceHandler){
+    public void createUI(ChoiceHandler choiceHandler, ClickerHandler clickerHandler){
 
         // Window
         window = new JFrame();
@@ -200,13 +200,19 @@ public class UI {
         window.add(statusPanel);
 
 
-        employePanel = new JLabel("Employees");
+        employeButP = new JLabel("Employees");
         // employePanel.setBackground(Color.LIGHT_GRAY);
-        employePanel.setForeground(Color.BLUE);
-        employePanel.setFont(normalFont);
-        statusPanel.add(employePanel);
+        employeButP.setForeground(Color.BLUE);
+        employeButP.setFont(normalFont);
+        statusPanel.add(employeButP);
 
         employeNumberPanel = new JLabel();
+        employeNumberPanel.setForeground(Color.BLUE);
+        employeNumberPanel.setFont(normalFont);
+        statusPanel.add(employeNumberPanel);
+
+        employeeNumber = 0;
+        employeNumberPanel = new JLabel(String.valueOf(employeeNumber));
         employeNumberPanel.setForeground(Color.BLUE);
         employeNumberPanel.setFont(normalFont);
         statusPanel.add(employeNumberPanel);
@@ -222,9 +228,11 @@ public class UI {
         jobNumberPanel.setFont(normalFont);
         statusPanel.add(jobNumberPanel);
 
+
+
         //---------------------------------------------------------------------
 
-        // Jobs Screen
+        // Creating Screen
         jobsP = new JPanel();
         jobsP.setBounds(250,350,350,150);
         jobsP.setBackground(Color.GRAY);
@@ -272,14 +280,30 @@ public class UI {
         jobBImput = new JButton("Next");
         jobBImput.setForeground(Color.BLUE);
         jobBImput.setFont(normalFontMini);
+        // jobBImput.addKeyListener(clickerHandler);
         jobBImput.addActionListener(choiceHandler);
         jobBImput.setActionCommand("takeJob");
         jobCButP.add(jobBImput);
 
+        jobBIDone = new JButton("End");
+        jobBIDone.setForeground(Color.BLUE);
+        jobBIDone.setFont(normalFontMini);
+        // jobBImput.addKeyListener(clickerHandler);
+        jobBIDone.addActionListener(choiceHandler);
+        jobBIDone.setActionCommand("ch1");
+        jobCButP.add(jobBIDone);
+
         //---------------------------------------------------------------------
 
-        // Team Screen
+        // Team create Screen
         teamP = new JPanel();
+        createEmploye = new JButton("next");
+        createEmploye.setForeground(Color.BLUE);
+        createEmploye.setFont(normalFontMini);
+        // jobBImput.addKeyListener(clickerHandler);
+        createEmploye.addActionListener(choiceHandler);
+        createEmploye.setActionCommand("takeEmploye");
+        teamP.add(createEmploye);
 
         window.setVisible(true);
     }

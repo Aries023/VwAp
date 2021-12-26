@@ -1,6 +1,6 @@
 package TeamBuilder.doplnky;
 
-import TeamBuilder.miniDatabase.Jobs;
+import TeamBuilder.miniDatabase.JobsAndEmploysLists;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,11 +8,11 @@ import java.awt.event.ActionListener;
 public class ChoiceHandler implements ActionListener {
 
     VisibilityManager vm;
-    Jobs jobs;
+    JobsAndEmploysLists jobsAndEmploysLists;
 
-    public ChoiceHandler(VisibilityManager visibilityManager, Jobs jobsManagment) {
+    public ChoiceHandler(VisibilityManager visibilityManager, JobsAndEmploysLists jobsAndEmploysListsManagment) {
         vm = visibilityManager;
-        jobs = jobsManagment;
+        jobsAndEmploysLists = jobsAndEmploysListsManagment;
     }
 
     @Override
@@ -22,10 +22,10 @@ public class ChoiceHandler implements ActionListener {
 
         switch (choice){
             case "start" :
-                vm.showWorkScreen();
+                vm.showMenuScreen();
                 break;
             case "ch1" :
-                vm.showJobsScreen();
+                vm.showCreateScreen();
                 break;
             case "ch2" :
                 break;
@@ -38,13 +38,21 @@ public class ChoiceHandler implements ActionListener {
                 vm.creatorJobs();
                 break;
             case "createTeam" :
+                vm.creatorEmploye();
                 break;
             case "takeJob" :
-                jobs.text = vm.ui.jobsTextArea.getText();
-                jobs.createJobs();
+                jobsAndEmploysLists.text = vm.ui.jobsTextArea.getText();
+                jobsAndEmploysLists.createJobs();
                 vm.ui.jobsNumber++;
                 vm.ui.jobNumberPanel.setText(String.valueOf(vm.ui.jobsNumber));
-                vm.ui.mainTextArea.setText(String.valueOf(jobs.jobPositions));
+                vm.ui.mainTextArea.setText(String.valueOf(jobsAndEmploysLists.jobPositions));
+                break;
+            case "takeEmploye" :
+                jobsAndEmploysLists.text = vm.ui.jobsTextArea.getText();
+                jobsAndEmploysLists.createJobs();
+                vm.ui.employeeNumber++;
+                vm.ui.jobNumberPanel.setText(String.valueOf(vm.ui.employeeNumber));
+                vm.ui.mainTextArea.setText(String.valueOf(jobsAndEmploysLists.jobPositions));
                 break;
 
         }

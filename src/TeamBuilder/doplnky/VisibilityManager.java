@@ -24,7 +24,7 @@ public class VisibilityManager {
         ui.jobCButP.setVisible(false);
     }
 
-    public void showWorkScreen(){
+    public void showMenuScreen(){
         ui.mainTextArea.setText("""
                 Now choose whether you want to create jobs, employees or divide the team into jobs.
                 \s
@@ -43,9 +43,10 @@ public class VisibilityManager {
         ui.jobsTextAreaP.setVisible(false);
     }
 
-    public void showJobsScreen(){
+    public void showCreateScreen(){
         ui.mainTextArea.setText("""
-                Do you want to create your jobs or just edit them?
+                Do you want to create your jobs or workers?
+                (first you need create jobs!)
                 \s
                 choose wisely!""");
 
@@ -55,6 +56,8 @@ public class VisibilityManager {
         // Hide Work Screen
         ui.choiceBP.setVisible(false);
         ui.jobCButP.setVisible(false);
+        ui.employeButP.setVisible(true);
+        ui.jobsTextAreaP.setVisible(false);
 
         ui.mainTextPanel.setBounds(100,100,600,250);
         ui.mainTextArea.setBounds(ui.mainTextPanel.getBounds());
@@ -72,6 +75,28 @@ public class VisibilityManager {
         // Show creatorJobs
         ui.jobsTextAreaP.setVisible(true);
         ui.jobCButP.setVisible(true);
+
+        // Hide Jobs Screen
+//        ui.mainTextPanel.setVisible(false);
+        ui.choiceBP.setVisible(false);
+        ui.titlePanel.setVisible(false);
+        ui.startButtlonP.setVisible(false);
+        ui.jobsP.setVisible(false);
+        ui.teamP.setVisible(false);
+    }
+
+    public void creatorEmploye(){
+
+        ui.mainTextPanel.setBounds(90,400,585,250);
+        ui.mainTextArea.setBounds(ui.mainTextPanel.getBounds());
+        ui.mainTextArea.setText("""
+                zadaj meno zamestnanca a klikni na tlacitko next
+                \s
+                az zadas posledneho zamestnanca a stlacis next, mozes zmacknut end""");
+
+        // Show creatorJobs
+        ui.jobsTextAreaP.setVisible(true);
+        ui.employeButP.setVisible(true);
 
         // Hide Jobs Screen
 //        ui.mainTextPanel.setVisible(false);

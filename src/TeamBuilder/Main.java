@@ -1,21 +1,24 @@
 package TeamBuilder;
 
 import TeamBuilder.doplnky.ChoiceHandler;
+import TeamBuilder.doplnky.ClickerHandler;
 import TeamBuilder.doplnky.UI;
 import TeamBuilder.doplnky.VisibilityManager;
-import TeamBuilder.miniDatabase.Jobs;
+import TeamBuilder.miniDatabase.JobsAndEmploysLists;
 
 import java.time.LocalDate;
 
 public class Main {
+    // datum
     LocalDate localDate = LocalDate.now();
     String day = localDate.getDayOfWeek().toString();
     String date = localDate.toString();
 
     UI ui = new UI(day,date);
-    Jobs jobs = new Jobs();
+    JobsAndEmploysLists jobsAndEmploysLists = new JobsAndEmploysLists();
     VisibilityManager vm = new VisibilityManager(ui);
-    ChoiceHandler choiceHandler = new ChoiceHandler(vm, jobs);
+    ClickerHandler clickerHandler = new ClickerHandler(vm, jobsAndEmploysLists);
+    ChoiceHandler choiceHandler = new ChoiceHandler(vm, jobsAndEmploysLists);
 
 
     public static void main(String[] args) {
@@ -24,7 +27,7 @@ public class Main {
         new Main();
     }
     public Main(){
-        ui.createUI(choiceHandler);
+        ui.createUI(choiceHandler, clickerHandler);
         vm.showTitleScreen();
     }
 }
