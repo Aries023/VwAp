@@ -297,6 +297,9 @@ public class UI {
 
         // Team create Screen
         teamP = new JPanel();
+        teamP.setBounds(180,210,450,80);
+        window.add(teamP);
+
         createEmploye = new JButton("next");
         createEmploye.setForeground(Color.BLUE);
         createEmploye.setFont(normalFontMini);

@@ -96,7 +96,7 @@ public class VisibilityManager {
 
         // Show creatorJobs
         ui.jobsTextAreaP.setVisible(true);
-        ui.employeButP.setVisible(true);
+        ui.teamP.setVisible(true);
 
         // Hide Jobs Screen
 //        ui.mainTextPanel.setVisible(false);
@@ -104,6 +104,5 @@ public class VisibilityManager {
         ui.titlePanel.setVisible(false);
         ui.startButtlonP.setVisible(false);
         ui.jobsP.setVisible(false);
-        ui.teamP.setVisible(false);
     }
 }
