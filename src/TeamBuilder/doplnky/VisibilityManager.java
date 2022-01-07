@@ -22,6 +22,7 @@ public class VisibilityManager {
         ui.teamP.setVisible(false);
         ui.jobsTextAreaP.setVisible(false);
         ui.jobCButP.setVisible(false);
+        ui.skillP.setVisible(false);
     }
 
     public void showMenuScreen(){

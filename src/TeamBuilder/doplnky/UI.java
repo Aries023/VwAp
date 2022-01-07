@@ -21,9 +21,9 @@ public class UI {
     }
 
     JFrame window;
-    JPanel titlePanel, startButtlonP, mainTextPanel, choiceBP, jobsP, teamP, statusPanel, obrazokTitlePanel1, obrazokTitlePanel2, dateP, dayP, versionP, ariP, jobsTextAreaP, jobCButP;
+    JPanel titlePanel, startButtlonP, mainTextPanel, choiceBP, jobsP, teamP, statusPanel, obrazokTitlePanel1, obrazokTitlePanel2, dateP, dayP, versionP, ariP, jobsTextAreaP, jobCButP, skillP;
     JLabel titleLabel, employeButP, employeNumberPanel, jobPanel, jobNumberPanel,titleImage, titleImage2;
-    JButton startB, jobsB, teamB, divideB, backB, createJobs, modifiJobs, backJobsB, createEmploye, modifiTeam, backEmployeB, jobBImput, jobBIDone;
+    JButton startB, jobsB, teamB, divideB, backB, createJobs, modifiJobs, backJobsB, createEmploye, modifiTeam, backEmployeB, jobBImput, jobBIDone, skillY, skillN;
     JTextArea mainTextArea, dayTextArea, dateTextArea, verTA, ariTA, jobsTextArea;
     Font titleFont = new Font("Times New Roman",Font.PLAIN,90);
     Font normalFont = new Font("Times New Roman",Font.PLAIN,26);
@@ -303,10 +303,30 @@ public class UI {
         createEmploye = new JButton("next");
         createEmploye.setForeground(Color.BLUE);
         createEmploye.setFont(normalFontMini);
-        // jobBImput.addKeyListener(clickerHandler);
         createEmploye.addActionListener(choiceHandler);
         createEmploye.setActionCommand("takeEmploye");
         teamP.add(createEmploye);
+
+        //---------------------------------------------------------------------
+
+        // Employee skills
+        skillP = new JPanel();
+        skillP.setBounds(180,210,450,80);
+        window.add(skillP);
+
+        skillY = new JButton("Yes");
+        skillY.setForeground(Color.BLUE);
+        skillY.setFont(normalFontMini);
+        skillY.addActionListener(choiceHandler);
+        skillY.setActionCommand("skillYes");
+        skillP.add(skillY);
+
+        skillN = new JButton("No");
+        skillN.setForeground(Color.BLUE);
+        skillN.setFont(normalFontMini);
+        skillN.addActionListener(choiceHandler);
+        skillN.setActionCommand("skillNo");
+        skillP.add(skillN);
 
         window.setVisible(true);
     }
