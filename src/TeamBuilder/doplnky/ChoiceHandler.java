@@ -49,7 +49,7 @@ public class ChoiceHandler implements ActionListener {
                 break;
             case "takeEmploye" :
                 jobsAndEmploysLists.text = vm.ui.jobsTextArea.getText();
-                jobsAndEmploysLists.createJobs();
+                jobsAndEmploysLists.createEmployee();
                 vm.ui.employeeNumber++;
                 vm.ui.employeNumberPanel.setText(String.valueOf(vm.ui.employeeNumber));
                 vm.ui.mainTextArea.setText(String.valueOf(jobsAndEmploysLists.jobPositions));
