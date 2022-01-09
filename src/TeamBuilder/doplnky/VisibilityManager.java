@@ -95,15 +95,28 @@ public class VisibilityManager {
                 \s
                 az zadas posledneho zamestnanca a stlacis next, mozes zmacknut end""");
 
-        // Show creatorJobs
+        // Show creatorTeam
         ui.jobsTextAreaP.setVisible(true);
         ui.teamP.setVisible(true);
 
-        // Hide Jobs Screen
+        // Hide Team Screen
 //        ui.mainTextPanel.setVisible(false);
         ui.choiceBP.setVisible(false);
         ui.titlePanel.setVisible(false);
         ui.startButtlonP.setVisible(false);
         ui.jobsP.setVisible(false);
+        ui.skillP.setVisible(false);
     }
+
+    public void employeeSkills(){
+
+        // show skillP
+        ui.skillP.setVisible(true);
+
+        // hide creatorTeam
+        ui.jobsTextAreaP.setVisible(false);
+        ui.teamP.setVisible(false);
+
+    }
+
 }
