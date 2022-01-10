@@ -114,7 +114,6 @@ public class VisibilityManager {
         ui.skillP.setVisible(true);
 
         // hide creatorTeam
-        ui.jobsTextAreaP.setVisible(false);
         ui.teamP.setVisible(false);
 
     }
