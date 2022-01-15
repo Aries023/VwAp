@@ -53,6 +53,7 @@ public class ChoiceHandler implements ActionListener {
                 vm.ui.employeeNumber++;
                 vm.ui.employeNumberPanel.setText(String.valueOf(vm.ui.employeeNumber));
                 vm.ui.mainTextArea.setText(String.valueOf(jobsAndEmploysLists.employees));
+                vm.employeeSkills();
                 break;
 
         }
