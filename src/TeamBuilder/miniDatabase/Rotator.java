@@ -4,7 +4,6 @@ import TeamBuilder.doplnky.VisibilityManager;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class Rotator {
 
@@ -53,10 +52,10 @@ public class Rotator {
 
 
             //tu overim ci ma zmysel vobec zapisat kombinaciu
-                for (List<String> arg : listSkillListou) {
-                    for (int b = 0; b<dostupnost.size(); b++){ // POZOR !! tu som dal velkost listu dostupnosti lebo List<List<String>> jave smrdi..<<---
-                        if (dostupnost.get(b)){
-                     if (!arg.contains(listSkillou.get(b))){
+                for (List<String> arg : skillSetsRotation) {
+                    for (int b = 0; b<skillSetsRotation.size(); b++){
+                        if (dostupnost.get(b)){ // ci je zamestnanec dostupny
+                     if (!arg.contains(listSkillou.get(b))){ // ak danu poziciu neovlada, cela kombinacia je zla a ide sa dalej
                          pasuje=false;
                          break;
                      }
@@ -65,9 +64,11 @@ public class Rotator {
                 }
 
                 // samotny zapis kombinacie
-            if (pasuje){
-                for (int b = 0; b<dostupnost.size() ;b++){ // POZOR !! tu som dal velkost listu dostupnosti lebo List<List<String>> jave smrdi..<<---
-                    vm.putCombinationInTextArea();
+            if (pasuje){                                           // ak kazdy ovlada svoju poziciu
+                for (int b = 0; b<skillSetsRotation.size() ;b++){ // podla poctu Listov pozicii..<<---
+                    if (dostupnost.get(b)){                      // ak je zamestnanec dostupny
+                        vm.putCombinationInTextArea(  listSkillou.get(b) + "=" + personsRotation.get(b) + "  ");
+                    }
                 }
             }
 
