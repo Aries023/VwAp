@@ -118,4 +118,8 @@ public class VisibilityManager {
 
     }
 
+    public void putCombinationInTextArea(String arg){
+        ui.mainTextArea.setText(arg);
+    }
+
 }
