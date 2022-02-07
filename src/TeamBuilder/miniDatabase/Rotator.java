@@ -33,9 +33,9 @@ public class Rotator {
             int posun2 = posun; // 1 or more
 
             while (posun2 < employee.size()){  // 1 (or more) < poctet zamestnancov
-                personsRotation.set(i, employee.get(posun2));  // zamestnanecka rotacia
-                skillSetsRotation.set(i,listSkillListou.get(posun2)); // rotacia zamestnaneckych skill setov
-                dostupnost.set(i,availability.get(posun2));  // rotacia dostupnosti
+                personsRotation.add(i, employee.get(posun2));  // zamestnanecka rotacia
+                skillSetsRotation.add(i,listSkillListou.get(posun2)); // rotacia zamestnaneckych skill setov
+                dostupnost.add(i,availability.get(posun2));  // rotacia dostupnosti
                 i++;
                 posun2++;
             }
@@ -43,9 +43,9 @@ public class Rotator {
             posun2 = 0;
 
             while (posun2 < posun){  // 0 < 1 (or more)
-                personsRotation.set(i, employee.get(posun2));// zamestnanecka rotacia (dodanie zaciatku)
-                skillSetsRotation.set(i,listSkillListou.get(posun2)); // rotacia zamestnaneckych skill setov (dokoncenie)
-                dostupnost.set(i,availability.get(posun2));  // rotacia dostupnosti (ukoncovak)
+                personsRotation.add(i, employee.get(posun2));// zamestnanecka rotacia (dodanie zaciatku)
+                skillSetsRotation.add(i,listSkillListou.get(posun2)); // rotacia zamestnaneckych skill setov (dokoncenie)
+                dostupnost.add(i,availability.get(posun2));  // rotacia dostupnosti (ukoncovak)
                 i++;
                 posun2++;
             }
@@ -53,7 +53,7 @@ public class Rotator {
 
             //tu overim ci ma zmysel vobec zapisat kombinaciu
                 for (List<String> arg : skillSetsRotation) {
-                    for (int b = 0; b<skillSetsRotation.size(); b++){
+                    for (int b = 0; b<listSkillou.size(); b++){ // listSkillou pretoze => skillSetsRotation by malo index mimo range.. (kedze .size pocita aj vnutorne indexi)
                         if (dostupnost.get(b)){ // ci je zamestnanec dostupny
                      if (!arg.contains(listSkillou.get(b))){ // ak danu poziciu neovlada, cela kombinacia je zla a ide sa dalej
                          pasuje=false;
