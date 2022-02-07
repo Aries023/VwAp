@@ -65,7 +65,7 @@ public class Rotator {
 
                 // samotny zapis kombinacie
             if (pasuje){                                           // ak kazdy ovlada svoju poziciu
-                for (int b = 0; b<skillSetsRotation.size() ;b++){ // podla poctu Listov pozicii..<<---
+                for (int b = 0; b<listSkillou.size() ;b++){ // podla poctu pozicii..<<---
                     if (dostupnost.get(b)){                      // ak je zamestnanec dostupny
                         vm.putCombinationInTextArea(  listSkillou.get(b) + "=" + personsRotation.get(b) + "  ");
                     }
